@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "flags": {
+        "type": "object",
+        "properties": {
+          "png": { "type": "string", "format": "uri" },
+          "svg": { "type": "string", "format": "uri" },
+          "alt": { "type": "string" }
+        },
+        "required": ["png", "svg"]
+      },
+      "capitalInfo": {
+        "type": "object",
+        "properties": {
+          "latlng": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2
+          }
+        },
+        "required": ["latlng"]
+      },
+      "name": {
+        "type": "object",
+        "properties": {
+          "common": { "type": "string" },
+          "official": { "type": "string" },
+          "nativeName": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "official": { "type": "string" },
+                "common": { "type": "string" }
+              },
+              "required": ["official", "common"]
+            }
+          }
+        },
+        "required": ["common", "official"]
+      },
+      "currencies": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "symbol": { "type": "string" }
+          },
+          "required": ["name"]
+        }
+      },
+      "capital": {
+        "type": "array",
+        "items": { "type": "string" },
+        "minItems": 1
+      },
+      "region": { "type": "string" },
+      "subregion": { "type": "string" },
+      "languages": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      },
+      "population": { "type": "integer", "minimum": 0 },
+      "continents": {
+        "type": "array",
+        "items": { "type": "string" },
+        "minItems": 1
+      }
+    },
+    "required": ["flags", "name", "capital", "region", "population", "continents"]
+  }
+}
