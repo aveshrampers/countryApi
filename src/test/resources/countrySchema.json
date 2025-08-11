@@ -19,7 +19,7 @@
           "latlng": {
             "type": "array",
             "items": { "type": "number" },
-            "minItems": 2
+            "minItems": 0
           }
         },
         "required": ["latlng"]
@@ -57,7 +57,7 @@
       "capital": {
         "type": "array",
         "items": { "type": "string" },
-        "minItems": 1
+        "minItems": 0
       },
       "region": { "type": "string" },
       "subregion": { "type": "string" },
